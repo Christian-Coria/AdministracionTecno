@@ -2,7 +2,7 @@
                                               Plataforma de Administracion para Servicios Tecnicos
                                               
 [!Deploy](https://heroku.com/deploy?template=https://github.com/Christian-Coria/AdministradorST)
-
+-no puede desplegarse en HEROKU por incopatibilidad de paquetes necesarios para que funcione el chat asincronico
 [==> Casos de Prueba <==](https://docs.google.com/spreadsheets/d/1XS3uoYypWx3NZjh3MMgHA_54NBxl6aaDTBgHDIhAgvY/edit?usp=sharing)
 
 
