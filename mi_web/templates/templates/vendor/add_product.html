@@ -1,0 +1,21 @@
+{% extends 'core/base2.html' %}
+
+{% block title %}Agregar Producto | {% endblock %}
+
+{% block content %}
+    <h1 class="title">Agregar Producto</h1>
+    <h2> Imagen valida solo en formato JPG </h2>
+    <br>
+
+    <form method="post" action="." enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+<br>
+        <div class="field">
+            <div class="control">
+                <button class="button is-dark is-uppercase">Enviar</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

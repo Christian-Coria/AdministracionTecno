@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+Muestra Herramienta
+{% endblock title%}
+
+{% block contenido %}
+<center>
+<h1><B><FONT COLOR="red">DETALLE DE HERRAMIENTA</FONT></h1>
+</center>
+<div>
+    <ul class="list-group list-group-horizontal-sm">
+        <li class="list-group-item">Cras justo odio</li>
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item">Morbi leo risus</li>
+      </ul>
+
+
+
+    <div class="p-3 mb-2 bg-dark text-white">
+    <ul class="list-grup-item">
+        
+           <li class='list-grup-item'> {{object.clase}} </li>
+           <li class='list-grup-item'> {{object.marca}} </li>
+           <li class='list-grup-item'> {{object.precio}} </li>
+           <li class='list-grup-item'> {{object.stock}} </li>
+
+    </ul>
+</div>
+<div class="d-grid gap-2">
+    <a class="btn btn-primary" href={% url 'listar_herramientas'%}>Volver a la lista</a>
+    </div>  
+               
+</div>
+{% endblock contenido %}

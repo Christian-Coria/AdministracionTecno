@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+Lista de Accesorios
+{% endblock title%}
+
+{% block contenido %}
+<center>
+    <center>
+        <br>
+        
+        <a class="btn btn-secondary"<a href={% url 'inventario_taller'  %}>Inventario del Taller</a>
+        <a class="btn btn-secondary"<a href={% url 'listar_ingresos'  %}>Reparaciones</a>
+        <a class="btn btn-secondary"<a href={% url 'become_vendor'  %}>Conviertete en Vendedor</a>
+        
+    
+    <p>
+        <div class="d-grid gap-2">
+            <a class="btn btn-primary" href={% url 'crear_accesorio' %}>Crear Accesorio</a>
+    </p>
+</center>
+<div>
+    <div class="p-3 mb-2 bg-dark text-white">
+    {% if object_list %}
+<h1>
+        <ul class="list-grup-item list-grup-flush">
+            {% for accesorio in object_list %}
+                {{accesorio.clase}}
+                <li class="list-grup-item">
+                 
+                    <a class="btn btn-primary"<a href={% url 'mostrar_accesorio' accesorio.id %}>Mostrar </a>
+                    <a class="btn btn-success"<a href={% url 'editar_accesorio' accesorio.id %}>Editar </a>
+                    <a class="btn btn-warning"<a href={% url 'eliminar_accesorio' accesorio.id %}>Eliminar </a>
+                   
+                </li>
+            {% endfor %}
+            </h1>
+            </div>
+    {% else %}
+            <p> No hay Accesorios Registrados </p>
+    {% endif%}
+               
+</div>
+{% endblock contenido %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+Lista de Reparacion
+{% endblock title%}
+
+{% block contenido %}
+<center>
+<br>
+
+    <a class="btn btn-secondary"<a href={% url 'listar_repuestos'  %}>Repuestos </a>
+    <a class="btn btn-secondary"<a href={% url 'listar_accesorios'  %}>Accesorios</a>
+    <a class="btn btn-secondary"<a href={% url 'listar_herramientas'  %}>Herramientas</a>
+    <a class="btn btn-secondary"<a href={% url 'listar_proveedores'  %}>Proveedores</a>
+
+
+{% endblock contenido %}

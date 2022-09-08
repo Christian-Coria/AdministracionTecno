@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+Datos de Reparacion
+{% endblock title %}
+
+{% block contenido %}
+<center>
+<div><h1><B><FONT COLOR="blue">EnLinea Servicio tecnico </FONT></h1>
+    <HR noshade size="5" width="50%" align="center">
+    <p>
+        <hr>
+       <p>   
+    <h4><B><FONT COLOR="red">ORDEN DE REPARACION</FONT></h4>
+        <HR size="5" width="50%" align="center">
+    </center>
+        <p>
+            <hr>
+           <p>    
+        <ul class="list-group list-group-horizontal-sm">
+           
+            <li class="list-group-item">{{object.id}}</li>
+            <li class="list-group-item">{{object.fecha}}</li>
+            
+          </ul>
+          <p>
+            <hr>
+           <p> 
+
+    <ul class="list-group">
+        <li class="list-group-item">DETALLE DE REPARACION</li>
+        <h2><B><FONT COLOR="red">Cliente</FONT></h2><li class="list-group-item list-group-item-dark"> {{object.cliente}} </li>
+        <li class="list-group-item list-group-item-danger"> {{object.telefono}} </li>
+        <h2><B><FONT COLOR="red">Equipo y Falla</FONT></h2><li class="list-group-item list-group-item-danger"> {{object.marca}} </li>
+        <li class="list-group-item list-group-item-danger"> {{object.modelo}} </li>
+        <li class="list-group-item list-group-item-danger"> {{object.imei}} </li>
+        <li class="list-group-item list-group-item-success"> {{object.falla}} </li>
+        <li class="list-group-item list-group-item-danger"> {{object.comentarios}} </li>
+        <h5><B><FONT COLOR="red">Presupuesto</FONT></h5><li class="list-group-item list-group-item-danger"> {{object.presupuesto}} </li>
+            <h5><B><FONT COLOR="red">Valor de Reparacion</FONT></h5><li class="list-group-item list-group-item-info"> {{object.precio}} </li>
+        <li class="list-group-item list-group-item-danger"> {{object.estado}} </li>
+        <p> Imagen de Equipo o Reparacion: </p>
+        {% if object.imagen %}
+            
+                <img src="{{ object.imagen.url }}"alt="" height="200px">
+            {% endif %}
+            <div><h5><B><FONT COLOR="blue">Rioja 180 Centro </FONT></h5>
+                <HR noshade size="5" width="50%" align="right">
+            <HR width="50%" align="center">
+        </ul>
+        </div>
+        <p>
+            <hr>
+           <p> 
+        <div class="d-grid gap-2">
+            <a class="btn btn-primary" href={% url 'listar_ingresos'%}>Volver a la lista</a>
+            </div>    
+            <br>
+           
+</div>
+
+{% endblock contenido %}
+
+
+    

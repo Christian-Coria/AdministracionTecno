@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} 
+Crear ingreso de reparacion
+{% endblock title%}
+
+{% block contenido %}
+<center>
+    <p>
+        <h1><B><FONT COLOR="red">CARGA DE REPARACION</FONT></h1>
+            
+
+<div>
+    <form action={% url 'crear_ingreso' %}  method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table class="table table-dark table-striped">
+            {{form.as_table}}
+        </table>
+        <center>
+            <div class="d-grid gap-2">
+                    <button class="btn btn-danger"> ==> INGRESAR REPARACION <==</button> <a class="btn btn-primary" href={% url 'listar_ingresos'%}>Volver a la lista</a>
+            </div>
+    </form>
+</div>
+
+{% endblock contenido %}

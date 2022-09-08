@@ -1,0 +1,27 @@
+{% extends 'core/base2.html' %}
+
+{% block title %}Become vendor | {% endblock %}
+
+{% block content %}
+    <h1 class="title">Conviértete en vendedor</h1>
+        <h2>Debes Usar un Usuario Diferente en esta Seccion</h2>
+        <br>
+    <form method="post" action=".">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <div class="field">
+            <div class="control">
+                <button class="button is-dark is-uppercase">Inscribirse</button>
+            </div>
+        </div>
+    </form>
+
+    <hr>
+
+    <h2 class="subtitle">Ya tienes una cuenta?</h2>
+    <a href="{% url 'login2' %}"class="button is-dark is-danger is-uppercase">Log in</a>
+        </div>
+    </div>
+{% endblock %}
