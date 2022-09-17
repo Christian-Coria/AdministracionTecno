@@ -1,6 +1,6 @@
 
 
-import os
+import os#render
 from pathlib import Path
 from telnetlib import LOGOUT
 import dj_database_url #heroku
@@ -14,13 +14,22 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-xii#kx@h%&qhn*fhxyl(09rub7-jt=(%9n9n!8d1$wv9d!@d=%'
+SECRET_KEY = SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key') #render
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+#DEBUG = True
 
 #ALLOWED_HOSTS = [os.environ.get("ALLOWED_HOST"), "localhost"]
-os.environ['ALLOWED_HOSTS'] = '.localhost, .herokuapp.com'
+#os.environ['ALLOWED_HOSTS'] = '.localhost, .herokuapp.com'
+
+ALLOWED_HOSTS = []
+
+DEBUG = 'RENDER' not in os.environ #render
+
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
 
 MESSAGE_STORAGE= "django.contrib.messages.storage.cookie.CookieStorage"
 
@@ -122,8 +131,8 @@ CHANNEL_LAYERS = {
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
-conn = os.environ.get("DATABASE_URL", 'sqlite:///db.sqlite3')
-DATABASES = {"default": dj_database_url.parse(conn, conn_max_age=600)}
+#conn = os.environ.get("DATABASE_URL", 'sqlite:///db.sqlite3')
+#DATABASES = {"default": dj_database_url.parse(conn, conn_max_age=600)}
 
 # DATABASES = {
 #    'default': {
@@ -135,7 +144,11 @@ DATABASES = {"default": dj_database_url.parse(conn, conn_max_age=600)}
 #        'PORT': '5432',
 #     }
 #  }
-
+DATABASES = {
+    'default': dj_database_url.config(
+        default='sqlite:///db.sqlite3',
+        conn_max_age=600)
+}
 
 
 # Password validation

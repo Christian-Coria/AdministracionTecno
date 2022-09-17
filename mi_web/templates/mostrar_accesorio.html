@@ -21,6 +21,33 @@ Muestra de Accesorio
     <div class="d-grid gap-2">
         <a class="btn btn-primary" href={% url 'listar_accesorios'%}>Volver a la lista</a>
         </div>  
-               
+        <div class="container">
+            <h2 class="text-center"><u>20 - Startups Table</u></h2><br>            
+            <table class="table table-dark table-striped">
+              <thead>
+                <tr>
+                  <th>Clase</th>
+                  <th>Marca</th>
+                  <th>Modelo</th>
+                  <th>Precio</th>
+                  <th>Stock</th>
+                </tr>
+              </thead>
+              <tbody>
+              <!-- jinja2 Technique -->
+              {% if objects %}  
+              {% for accesorio in Accesorios %}
+                <tr>
+                  <td>{{object.clase}}</td>
+                  <td>{{object.marca}}</td>
+                  <td>{{object.modelo}}</td>
+                  <td>{{object.precio}}</td>
+                  <td>{{object.stock}}</td>
+                </tr>
+              {% endfor %}
+              {% endif %}
+              </tbody>
+            </table>
+          </div>         
 </div>
 {% endblock contenido %}
